@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Happy carousel
-Plugin URI: 
-Description: Happy carousel for wordpress
+Plugin Name: Testemonial carousel
+Plugin URI: https://github.com/blocus/testemonial-carousel-wordpress
+Description: Testemonial carousel for wordpress
 Author: Ahmed Meftah
-Author URI: 
+Author URI: https://ahmedmeftah.com
 Version: 0.1
 */
 
@@ -13,7 +13,7 @@ $table_items_name = $wpdb->prefix . 'mef_carousel_items';
 
 
 register_activation_hook( __FILE__, 'mef_carousel_create_plugin_database_table' );
-register_activation_hook( __FILE__, 'mef_carousel_delete_plugin_database_table');
+register_uninstall_hook( __FILE__, 'mef_carousel_delete_plugin_database_table');
 add_action("admin_menu", "addMenu");
 
 function addMenu(){
@@ -320,7 +320,7 @@ function mef_carousel( $atts ) {
     $items = $wpdb->get_results( "SELECT * FROM {$table_items_name} WHERE parent_id = $id", OBJECT );
 
     if($results){
-        echo  "<h3>{$results[0]->title}</h3>";
+        echo  "<h2 style='text-align: center' class='elementor-image-box-title'>{$results[0]->title}</h2>";
         echo "<div class='mef-carousel'>";
         foreach ( $items as $key => $item) {
             $mainClass = "mef-carousel-item";
@@ -388,10 +388,6 @@ function mef_carousel_delete_plugin_database_table(){
         $wpdb->query("DROP TABLE IF EXISTS $tablename");
     }
 }
-
-register_uninstall_hook(__FILE__, 'delete_plugin_database_tables');
-
-register_activation_hook( __FILE__, 'create_plugin_database_table' );
 
 add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
 add_action( 'wp_enqueue_scripts', 'prefix_add_my_javascript' );
