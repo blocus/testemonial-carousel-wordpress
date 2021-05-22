@@ -1,0 +1,82 @@
+.mef-carousel {
+  position: relative;
+  height: 400px;
+}
+
+.mef-carousel .mef-carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  gap: 2em;
+}
+
+.mef-carousel .mef-carousel-item.active {
+  opacity: 1;
+}
+
+.mef-carousel .mef-carousel-item img {
+  object-fit: cover;
+  width: 50%;
+}
+.mef-carousel .mef-carousel-item q {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mef-carousel .mef-carousel-item q i {
+  color: #575757;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.mef-carousel .mef-carousel-item q .mef-carousel-item-quote-author {
+  color: #000000;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 900;
+}
+.mef-carousel .mef-carousel-item q .mef-carousel-item-quote-description {
+  color: #575757;
+  line-height: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.mef-carousel .mef-carousel-item q .mef-carousel-item-quote-message {
+  font-size: 1em;
+  line-height: 2em;
+  text-align: justify;
+}
+
+.mef-carousel-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  margin-top: 1em;
+  gap: 0.5em;
+  height: 20px;
+}
+
+.mef-carousel-selector .mef-carousel-selector-item {
+  width: 16px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  border-radius: 8px;
+  background: #838383;
+  height: 16px;
+}
+
+.mef-carousel-selector .mef-carousel-selector-item:hover {
+  width: 32px;
+}
+.mef-carousel-selector .mef-carousel-selector-item.active {
+  width: 32px;
+  background: #054fa3;
+}
